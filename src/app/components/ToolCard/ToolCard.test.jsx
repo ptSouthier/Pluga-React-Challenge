@@ -29,9 +29,9 @@ describe('Tool Card Component Requirements', () => {
   });
 
 	it('Must show the correct name of the tool', () => {
-    const nameElement = screen.getByTestId('tool-name').innerHTML;
+    const nameElementTextContent = screen.getByTestId('tool-name').textContent;
 
-    expect(nameElement).toEqual(toolMockedData.name);
+    expect(nameElementTextContent).toEqual(toolMockedData.name);
   });
 
 	it('Must open the ToolModal when click on card', () => {
