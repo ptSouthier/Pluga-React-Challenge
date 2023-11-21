@@ -1,4 +1,6 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { ToolModal } from '.';
 
 describe('Tool Modal Component Requirements', () => {
   let toolMockedData = {};
@@ -39,10 +41,8 @@ describe('Tool Modal Component Requirements', () => {
 
     render(
       <ToolModal.Root>
-        <ToolModal.Icon icon={toolMockedData.icon} />
-        <ToolModal.Name name={toolMockedData.name} />
-        <ToolModal.Link link={toolMockedData.link} />
-        <ToolModal.LastSeenTools tools={mockedLastSeenTools} />
+        <ToolModal.Content toolData={toolMockedData} />
+        <ToolModal.LastSeenTools seenTools={mockedLastSeenTools} />
       </ToolModal.Root>
     );
 	});
@@ -68,7 +68,7 @@ describe('Tool Modal Component Requirements', () => {
   });
 
   it('Must contains the last 3 seen tools', () => {
-    const lastSeenToolsArr = screen.getAllByTestId('recently-seen-tool');
+    const lastSeenToolsArr = screen.getAllByTestId('tool-card-name');
     const expectedLastSeenToolsLength = mockedLastSeenTools.length;
 
     expect(lastSeenToolsArr.length).toBe(expectedLastSeenToolsLength);
