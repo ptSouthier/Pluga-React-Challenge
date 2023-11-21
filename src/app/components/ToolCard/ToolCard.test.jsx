@@ -1,6 +1,9 @@
+import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { ToolCard } from '.';
 
 describe('Tool Card Component Requirements', () => {
+  const handleClickMock = jest.fn();
   let toolMockedData = {};
   
 	beforeEach(() => {
@@ -14,32 +17,29 @@ describe('Tool Card Component Requirements', () => {
 
     render(
       <ToolCard.Root>
-        <ToolCard.Icon icon={toolMockedData.icon} />
-        <ToolCard.Name name={toolMockedData.name} />
+        <ToolCard.View toolData={toolMockedData} onButtonClick={handleClickMock} />
       </ToolCard.Root>
     );
 	});
 
   it('Must contains the icon and name of the tool', () => {
-    const iconElement = screen.getByTestId('tool-icon');
-    const nameElement = screen.getByTestId('tool-name');
+    const iconElement = screen.getByTestId('tool-card-icon');
+    const nameElement = screen.getByTestId('tool-card-name');
 
 		expect(iconElement).toBeInTheDocument();
     expect(nameElement).toBeInTheDocument();
   });
 
 	it('Must show the correct name of the tool', () => {
-    const nameElementTextContent = screen.getByTestId('tool-name').textContent;
+    const nameElementTextContent = screen.getByTestId('tool-card-name').textContent;
 
     expect(nameElementTextContent).toEqual(toolMockedData.name);
   });
 
-	it('Must open the ToolModal when click on card', () => {
-    const cardElement = screen.getByTestId('tool-card');
+	it('Must call the click handler function when the button is clicked', () => {
+    const cardElement = screen.getByTestId('tool-card-button');
 		fireEvent.click(cardElement);
 
-    const modalElement = screen.getByTestId('tool-modal');
-
-    expect(modalElement).toBeInTheDocument();
+    expect(handleClickMock).toHaveBeenCalledTimes(1);
   });
 });
