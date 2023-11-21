@@ -52,7 +52,7 @@ export default function Home() {
     });
   };
 
-  const handleInputChange = (value) => {
+  const handleSearchInputChange = (value) => {
     setSearchByName(value);
   };
 
@@ -72,7 +72,7 @@ export default function Home() {
       <div className="pb-8">
         <SearchBar.Root>
           <SearchBar.Icon icon={Magnifier} />
-          <SearchBar.Input placeholder="Buscar ferramenta" onInputChange={handleInputChange} />
+          <SearchBar.Input placeholder="Buscar ferramenta" onInputChange={handleSearchInputChange} />
         </SearchBar.Root>
       </div>
 
