@@ -3,6 +3,8 @@ import PlugaToolsArray from '@/public/data/pluga_tools_search.json';
 import { useEffect, useState } from "react";
 import { ToolModal } from "@/app/components/ToolModal";
 import { ToolCard } from "@/app/components/ToolCard";
+import { SearchBar } from "@/app/components/SearchBar";
+import { Magnifier } from '@/app/components/Icons/Magnifier';
 
 export default function Home() {
   const [toolsArray, setToolsArray] = useState([]);
@@ -50,8 +52,12 @@ export default function Home() {
     });
   };
 
+  const handleInputChange = (value) => {
+    setSearchByName(value);
+  };
+
   const filteredTools = searchByName.length > 0
-    ? toolsArray.filter((tool) => tool.name.includes(searchByName))
+    ? toolsArray.filter((tool) => tool.name.toLowerCase().includes(searchByName.toLowerCase()))
     : [];
 
   return (
@@ -63,9 +69,12 @@ export default function Home() {
         </ToolModal.Root>
       )}
 
-      {/* <SearchBar.Root>
-        <SearchBar.Input placeholder="Buscar ferramenta" dataToSearch={toolsData} />
-      </SearchBar.Root> */}
+      <div className="pb-8">
+        <SearchBar.Root>
+          <SearchBar.Icon icon={Magnifier} />
+          <SearchBar.Input placeholder="Buscar ferramenta" onInputChange={handleInputChange} />
+        </SearchBar.Root>
+      </div>
 
       <div id='cards-container' className="grid xl:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-2 min-w-full">
         { searchByName.length > 0 ? (
