@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { ToolCard } from '.';
 
 describe('Tool Card Component Requirements', () => {
-  const handleClickMock = jest.fn();
+  const functionMock = jest.fn();
   let toolMockedData = {};
   
 	beforeEach(() => {
@@ -17,7 +17,7 @@ describe('Tool Card Component Requirements', () => {
 
     render(
       <ToolCard.Root>
-        <ToolCard.View toolData={toolMockedData} onButtonClick={handleClickMock} />
+        <ToolCard.View toolData={toolMockedData} onButtonClick={functionMock} />
       </ToolCard.Root>
     );
 	});
@@ -40,6 +40,6 @@ describe('Tool Card Component Requirements', () => {
     const cardElement = screen.getByTestId('tool-card-button');
 		fireEvent.click(cardElement);
 
-    expect(handleClickMock).toHaveBeenCalledTimes(1);
+    expect(functionMock).toHaveBeenCalledTimes(1);
   });
 });
