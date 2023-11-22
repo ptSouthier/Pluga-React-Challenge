@@ -13,7 +13,6 @@ export default function Home() {
     clickedTool: {},
   });
 
-  console.log('renderizou');
 
   useEffect(() => {
     setToolsArray([...PlugaToolsArray]);
