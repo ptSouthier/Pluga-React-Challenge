@@ -1,10 +1,12 @@
 'use client';
-import PlugaToolsArray from '@/public/data/pluga_tools_search.json';
 import { useEffect, useState } from "react";
+import PlugaToolsArray from '@/public/data/pluga_tools_search.json';
 import { ToolModal } from "@/app/components/ToolModal";
 import { ToolCard } from "@/app/components/ToolCard";
 import { SearchBar } from "@/app/components/SearchBar";
 import { Magnifier } from '@/app/components/Icons/Magnifier';
+import { Pagination } from '@/app/components/Pagination';
+import { PlugaLogo } from '@/app/components/Icons/PlugaLogo';
 
 export default function Home() {
   const [toolsArray, setToolsArray] = useState([]);
@@ -68,6 +70,10 @@ export default function Home() {
           <ToolModal.LastSeenTools seenTools={seenToolsQueue} />
         </ToolModal.Root>
       )}
+
+      <div className="flex place-content-center h-1/2 -mt-20">
+        <PlugaLogo size="400" />
+      </div>
 
       <div className="pb-8">
         <SearchBar.Root>
