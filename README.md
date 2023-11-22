@@ -14,18 +14,20 @@
 Este projeto foi um Teste Técnico recebido através de um convite por e-mail da empresa [Pluga](https://pluga.co/).
 
 O desafio consiste em escrever uma <b>aplicação React</b> contendo uma listagem paginada de cards representando os [aplicativos integrados na Pluga](https://pluga.co/ferramentas_search.json), onde o usuário possa buscar dentre as ferramentas listada através de uma barra de pesquisa, abrir um modal contendo algumas informações da aplicação e tenha visibilidade através também do modal aos últimos 3 aplicativos visualizados.
+<br> É possível visualizar e interagir com _quase_ todas as features disponíveis do projeto através do [Link do Deploy](https://pluga-react-challenge.vercel.app/) feito através do Vercel.
 
 ---
 
 ## Escolhas do projeto e bibliotecas utilizadas no desenvolvimento:
 
-O projeto foi desenvolvido em React através do Framework Next.js em sua versão 14.0.3. Fizeram parte do desenvolvimento também bibliotecas como, Tailwind para auxílio na estilização e Jest e RTL como dependências de desenvolvimento para elaboração de testes unitários de componentes.
+O projeto foi desenvolvido em React através do Framework Next.js em sua versão 14.0.3. Fizeram parte do desenvolvimento também bibliotecas como, Tailwind para auxílio na estilização e Jest e RTL como dependências de desenvolvimento para elaboração de testes unitários de componentes. Para efetuar o deploy do projeto fiz uso do Vercel, devido fato de ser a empresa criadora do Next.js.
 
 * [React](https://react.dev/)<br>
 * [Next.js](https://nextjs.org/)<br>
 * [Tailwind CSS](https://tailwindcss.com/)<br>
 * [Jest](https://jestjs.io/pt-BR/)<br>
 * [React Testing Library - RTL](https://testing-library.com/docs/react-testing-library/intro/)<br>
+* [Vercel](https://vercel.com/)<br>
 
 ---
 
@@ -81,6 +83,7 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para exec
 
 ## Futuras Melhorias / Problemas Conhecidos
 
+* Input da Barra de Pesquisa e lógica de filtragem dos dados estão quebrados no link do deploy Vercel.
 * Correção de quebras visuais que podem ocorrer em ferramentas de nome extenso.
 * Melhorias na presente documentação do projeto, como a inclusão de imagens reais do projeto em execução.
 * Cobertura de teste para o componente Pagination.
