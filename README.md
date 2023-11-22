@@ -81,9 +81,8 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para exec
 
 ## Futuras Melhorias / Problemas Conhecidos
 
-* Adaptação dos testes para que possam avaliar corretamente os campos disponíveis e garantir a confiabilidade da testagem.
-* Implementação dos componentes e lógicas restantes, como SearchBar e Pagination.
 * Correção de quebras visuais que podem ocorrer em ferramentas de nome extenso.
 * Melhorias na presente documentação do projeto, como a inclusão de imagens reais do projeto em execução.
+* Cobertura de teste para o componente Pagination.
 
 ---
