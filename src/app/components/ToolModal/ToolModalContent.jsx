@@ -25,7 +25,7 @@ export function ToolModalContent({ toolData }) {
           <a
             href={toolData.link}
             target="_blank"
-            className="mt-4 w-full max-w-[14rem] rounded-full bg-blue-500 hover:bg-blue-700 px-20 py-2 text-center text-white"
+            className="mt-4 w-full max-w-[14rem] rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br px-20 py-2 text-center text-white"
             data-testid="tool-modal-link"
           >
             Acessar
