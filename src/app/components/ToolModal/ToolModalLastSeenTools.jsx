@@ -12,8 +12,8 @@ export function ToolModalLastSeenTools({ seenTools }) {
       { seenTools.length > 0
         ? 
           <div className="grid grid-cols-1 gap-2 md:grid-cols-3 md:px-12 xl:grid-cols-3 xl:px-12" data-testid="last-seen-tools">
-            { seenTools.map((toolData) => (
-              <ToolCard.Root key={toolData.name}>
+            { seenTools.map((toolData, index) => (
+              <ToolCard.Root key={toolData.name} order={index == 0 ? 'order-last' : index == seenTools.length - 1 ? 'order-first' : '' }>
                 <ToolCard.View toolData={toolData} onButtonClick={handleLastSeenCardClick} data-testid="recently-seen-tool" />
               </ToolCard.Root>
             ))}
