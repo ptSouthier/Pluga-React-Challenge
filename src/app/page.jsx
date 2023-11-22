@@ -12,13 +12,14 @@ export default function Home() {
   const [toolsArray, setToolsArray] = useState([]);
   const [searchByName, setSearchByName] = useState('');
   const [seenToolsQueue, setSeenToolsQueue] = useState([]);
-  const [modalData, setModalData] = useState({
-    showModal: false,
-    clickedTool: {},
-  });
+  const [modalData, setModalData] = useState({ showModal: false, clickedTool: {} });
+  const [pagination, setPagination] = useState({ currentPage: 1, contentPerPage: 12 })
+
 
   useEffect(() => {
-    setToolsArray([...PlugaToolsArray]);
+    setTimeout(() => {
+      setToolsArray([...PlugaToolsArray]);
+    }, 1500)
   }, []);
 
   const handleCardClick = (toolData) => {
@@ -55,12 +56,34 @@ export default function Home() {
   };
 
   const handleSearchInputChange = (value) => {
+    setPagination({ currentPage: 1, contentPerPage: 12 });
     setSearchByName(value);
   };
 
   const filteredTools = searchByName.length > 0
     ? toolsArray.filter((tool) => tool.name.toLowerCase().includes(searchByName.toLowerCase()))
-    : [];
+    : [...toolsArray];
+
+  const setCurrentPageContent = () => {
+    const tools = [...filteredTools];
+    const { currentPage, contentPerPage } = pagination;
+
+    const totalPages = Math.ceil(tools.length / contentPerPage);
+    const indexOfFirstElementOnPage = (currentPage - 1) * contentPerPage;
+    const indexOfLastElementOnPage = (currentPage * contentPerPage);
+    const pageContent = tools.slice(indexOfFirstElementOnPage, indexOfLastElementOnPage);
+
+    return { pageContent, totalPages };
+  };
+
+  const { pageContent, totalPages } = setCurrentPageContent();
+
+  const handlePageChange = (paginationData) => {
+    setPagination({
+      ...pagination,
+      currentPage: paginationData
+    });
+  };
 
   return (
     <main className="flex-row place-content-center px-60 py-14 bg-gradient-to-t from-neutral-50 to-blue-600">
@@ -82,26 +105,28 @@ export default function Home() {
         </SearchBar.Root>
       </div>
 
-      <div id='cards-container' className="grid xl:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-2 min-w-full">
-        { searchByName.length > 0 ? (
-          filteredTools.map((toolData) => (
+      <div id='cards-container' className="grid xl:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-1 min-w-full px-28 sm:px-12">
+        { pageContent.length ? (
+          pageContent.map((toolData) => (
             <ToolCard.Root key={toolData.name}>
               <ToolCard.View toolData={toolData} onButtonClick={handleCardClick} />
             </ToolCard.Root>
           ))
         ) : (
-          toolsArray.map((toolData) => (
-            <ToolCard.Root key={toolData.name}>
-              <ToolCard.View toolData={toolData} onButtonClick={handleCardClick} />
-            </ToolCard.Root>
+          Array.from({ length: 12 }).map((_, index) => (
+            <div key={`skeleton-${index}`} className="bg-slate-200 animate-pulse sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none"></div>
           ))
-        )}
+        )
+        }
       </div>
 
-      {/* <Pagination.Root>
-        <Pagination.Content perPage={contentPerPage} />
-        <Pagination.Pages totalPages={totalPages} />
-      </Pagination.Root> */}
+      <Pagination.Root>
+        <Pagination.Control
+          currentPage={pagination.currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </Pagination.Root>
     </main>
   )
 }
