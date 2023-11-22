@@ -5,7 +5,7 @@ export function ToolModalRoot({ children, isOpen, onClose }) {
   return (
     <div
       id="backdrop"
-      className={`w-screen h-screen fixed inset-0 flex justify-center items-center transition-colors ${isOpen ? "visible bg-black/50" : "invisible"}`}
+      className={`w-screen h-screen fixed z-10 inset-0 flex justify-center items-center transition-colors ${isOpen ? "visible bg-black/50" : "invisible"}`}
     >
       <div
         data-testid="tool-modal"

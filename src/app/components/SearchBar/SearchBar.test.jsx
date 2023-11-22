@@ -1,40 +1,30 @@
+import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import pluga_tools_search from '@/public/data/pluga_tools_search.json';
+import { SearchBar } from '.';
 
 describe('Search Bar Component Requirements', () => {
-  let toolsMockedData = [];
-  
-	beforeEach(() => {
-		toolsMockedData = [...pluga_tools_search];
+  const functionMock = jest.fn();
+  const searchText = 'Sample';
+  let inputElement = null;
 
+	beforeEach(() => {
     render(
       <SearchBar.Root>
-        <SearchBar.Input placeholder="Buscar ferramenta" dataToSearch={toolsMockedData} />
+        <SearchBar.Input placeholder="Buscar ferramenta" onInputChange={functionMock} />
       </SearchBar.Root>
     );
+
+    inputElement = screen.getByTestId('search-bar-input');
+
+    fireEvent.change(inputElement, { target: { value: searchText } });
 	});
 
-	it('Must find a tool by its name', () => {
-    const inputElement = screen.getByTestId('search-bar-input');
-
-    const toolNameToSearch = 'Omie';
-    fireEvent.change(inputElement, { target: { value: toolNameToSearch } });
-
-    const expectedToolNameToBe = screen.getByText(toolNameToSearch);
-    const unexpectedToolName = screen.getByText('Hotmart');
-
-		expect(expectedToolNameToBe).toBeInTheDocument();
-		expect(unexpectedToolName).not.toBeInTheDocument();
+  it('Must call the onChange handler function when the element input changes', () => {
+    expect(functionMock).toHaveBeenCalledTimes(1);
   });
 
-  it('Must shows no result when searching for an inexistent tool name', () => {
-    const inputElement = screen.getByTestId('search-bar-input');
-
-    const toolNameToSearch = 'Inexistent';
-    fireEvent.change(inputElement, { target: { value: toolNameToSearch } });
-
-    const toolCardElement = screen.getByTestId('tool-card');
-
-		expect(toolCardElement).not.toBeInTheDocument();
+	it('Must contains the typed value', () => {
+		expect(inputElement.value).toBe(searchText);
+		expect(inputElement.value).not.toBe('Whatever');
   });
 });
