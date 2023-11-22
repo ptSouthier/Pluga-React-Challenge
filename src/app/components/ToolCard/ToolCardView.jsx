@@ -18,7 +18,7 @@ export function ToolCardView({ toolData, onButtonClick }) {
           data-testid="tool-card-icon"
         />
         
-        <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2" data-testid="tool-card-button">
+        <button onClick={handleClick} className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br text-white font-bold py-2 px-4 rounded mx-2" data-testid="tool-card-button">
           <span data-testid="tool-card-name">
             {toolData.name}
           </span>
