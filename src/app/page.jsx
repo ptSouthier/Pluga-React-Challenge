@@ -61,7 +61,7 @@ export default function Home() {
     : [];
 
   return (
-    <main className="flex-row place-content-center px-60 py-14">
+    <main className="flex-row place-content-center px-60 py-14 bg-gradient-to-t from-neutral-50 to-blue-600">
       { modalData.showModal && (
         <ToolModal.Root isOpen={modalData.showModal} onClose={() => handleModalClosure(modalData.clickedTool)}>
           <ToolModal.Content toolData={modalData.clickedTool} />
