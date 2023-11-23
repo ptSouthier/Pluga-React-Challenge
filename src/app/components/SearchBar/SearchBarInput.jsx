@@ -1,3 +1,4 @@
+'use client';
 export function SearchBarInput({ placeholder, onInputChange }) {
   const handleChange = (({ target }) => {
     onInputChange(target.value);
