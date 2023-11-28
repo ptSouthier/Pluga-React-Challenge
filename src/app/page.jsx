@@ -101,7 +101,7 @@ export default function Home() {
       <div className="pb-8">
         <SearchBar.Root>
           <SearchBar.Icon icon={Magnifier} iconProps={{color: '#A9A9A9'}} />
-          <SearchBar.Input placeholder="Buscar ferramenta" onInputChange={handleSearchInputChange} />
+          <SearchBar.Input placeholder="Buscar ferramenta" onInputChange={handleSearchInputChange} searchValue={searchByName} />
         </SearchBar.Root>
       </div>
 
