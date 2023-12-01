@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from "react";
 import PlugaToolsArray from '@/public/data/pluga_tools_search.json';
-import { ToolModal } from "@/app/components/ToolModal";
-import { ToolCard } from "@/app/components/ToolCard";
-import { SearchBar } from "@/app/components/SearchBar";
-import { Magnifier } from '@/app/components/Icons/Magnifier';
-import { Pagination } from '@/app/components/Pagination';
-import { PlugaLogo } from '@/app/components/Icons/PlugaLogo';
+import { ToolModal } from "@/components/ToolModal";
+import { ToolCard } from "@/components/ToolCard";
+import { SearchBar } from "@/components/SearchBar";
+import { Magnifier } from '@/components/Icons/Magnifier';
+import { Pagination } from '@/components/Pagination';
+import { PlugaLogo } from '@/components/Icons/PlugaLogo';
 
 export default function Home() {
   const [toolsArray, setToolsArray] = useState([]);
