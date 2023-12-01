@@ -113,7 +113,7 @@ export default function Home() {
             </ToolCard.Root>
           ))
         ) : (
-          Array.from({ length: 12 }).map((_, index) => (
+          Array.from({ length: 4 }).map((_, index) => (
             <div key={`skeleton-${index}`} className="bg-slate-200 animate-pulse sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none"></div>
           ))
         )
