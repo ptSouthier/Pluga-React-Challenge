@@ -94,7 +94,7 @@ export default function Home() {
         </ToolModal.Root>
       )}
 
-      <div className="flex place-content-center h-1/2 -mt-20">
+      <div className="flex place-content-center">
         <PlugaLogo width="400" height="300" />
       </div>
 
