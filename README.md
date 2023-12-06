@@ -14,7 +14,10 @@
 Este projeto foi um Teste Técnico recebido através de um convite por e-mail da empresa [Pluga](https://pluga.co/).
 
 O desafio consiste em escrever uma <b>aplicação React</b> contendo uma listagem paginada de cards representando os [aplicativos integrados na Pluga](https://pluga.co/ferramentas_search.json), onde o usuário possa buscar dentre as ferramentas listada através de uma barra de pesquisa, abrir um modal contendo algumas informações da aplicação e tenha visibilidade através também do modal aos últimos 3 aplicativos visualizados.
-<br> É possível visualizar e interagir com _quase_ todas as features disponíveis do projeto através do [Link do Deploy](https://pluga-react-challenge.vercel.app/) feito através do Vercel.
+<br> É possível visualizar e interagir com as features disponíveis do projeto através do [Link do Deploy](https://pluga-react-challenge.vercel.app/) feito através do Vercel.
+
+![](https://github.com/ptSouthier/Pluga-React-Challenge/blob/main/public/ApplicationGIF.gif)
+<sub><br>_GIF ilustrando aplicação desenvolvida_</sub>
 
 ---
 
