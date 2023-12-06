@@ -95,7 +95,7 @@ export default function Home() {
       )}
 
       <div className="flex place-content-center h-1/2 -mt-20">
-        <PlugaLogo size="400" />
+        <PlugaLogo width="400" height="300" />
       </div>
 
       <div className="pb-8">
