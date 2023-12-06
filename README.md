@@ -86,9 +86,8 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para exec
 
 ## Futuras Melhorias / Problemas Conhecidos
 
-* Input da Barra de Pesquisa e lógica de filtragem dos dados estão quebrados no link do deploy Vercel.
 * Correção de quebras visuais que podem ocorrer em ferramentas de nome extenso.
-* Melhorias na presente documentação do projeto, como a inclusão de imagens reais do projeto em execução.
+* Responsividade - Layout pode quebrar em dispositivos mobile.
 * Cobertura de teste para o componente Pagination.
 
 ---
