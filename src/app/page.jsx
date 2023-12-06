@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from "react";
 import PlugaToolsArray from '@/public/data/pluga_tools_search.json';
-import { ToolModal } from "@/app/components/ToolModal";
-import { ToolCard } from "@/app/components/ToolCard";
-import { SearchBar } from "@/app/components/SearchBar";
-import { Magnifier } from '@/app/components/Icons/Magnifier';
-import { Pagination } from '@/app/components/Pagination';
-import { PlugaLogo } from '@/app/components/Icons/PlugaLogo';
+import { ToolModal } from "@/components/ToolModal";
+import { ToolCard } from "@/components/ToolCard";
+import { SearchBar } from "@/components/SearchBar";
+import { Magnifier } from '@/components/Icons/Magnifier';
+import { Pagination } from '@/components/Pagination';
+import { PlugaLogo } from '@/components/Icons/PlugaLogo';
 
 export default function Home() {
   const [toolsArray, setToolsArray] = useState([]);
@@ -94,8 +94,8 @@ export default function Home() {
         </ToolModal.Root>
       )}
 
-      <div className="flex place-content-center h-1/2 -mt-20">
-        <PlugaLogo size="400" />
+      <div className="flex place-content-center">
+        <PlugaLogo width="400" height="300" />
       </div>
 
       <div className="pb-8">
@@ -113,7 +113,7 @@ export default function Home() {
             </ToolCard.Root>
           ))
         ) : (
-          Array.from({ length: 12 }).map((_, index) => (
+          Array.from({ length: 4 }).map((_, index) => (
             <div key={`skeleton-${index}`} className="bg-slate-200 animate-pulse sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none"></div>
           ))
         )
