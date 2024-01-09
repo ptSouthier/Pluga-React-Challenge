@@ -1,14 +1,5 @@
 # Boas vindas ao repositório Pluga React Challenge!
 
-<details>
-  <summary><i>📧 Querida Pessoa Avaliadora</i></summary>
-  <sub>
-    O conteúdo presente na atual branch possui diversas alterações e implementações realizadas após o prazo final estipulado no convite para o desafio! Por vontade própria decidi dar continuidade no desenvolvimento e agora, ao concluir uma versão mais coesa e satisfatória do projeto, decidi seguir o aprendizado e tentar fazer o deploy com uso do Vercel. Para tanto, aparenta se fazer necessário que o código final esteja presente na branch <b>main</b>!
-    <br>O intuito não visa em nenhum momento manipular a avaliação do projeto e, sendo assim, é possível acessar o código contendo os arquivos alterados até o prazo final através 
-<a href="https://github.com/ptSouthier/Pluga-React-Challenge/tree/backup/implemented-in-due-time" target="_blank">dessa branch</a>!
-  </sub>
-</details>
-
 ## Contexto
 
 Este projeto foi um Teste Técnico recebido através de um convite por e-mail da empresa [Pluga](https://pluga.co/).
